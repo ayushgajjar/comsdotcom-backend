@@ -93,7 +93,7 @@ exports.signup = async(req, res) => {
             <h1>Hello</h1>
             <p>Thanks for registering on Our Site.</p>
             <p>Please click link below to verify your account</p>
-            <a href=http://52.3.251.0:8081/api/verify/${user.uniqueString}> Verify your Account </a>`
+            <a href=http://52.3.251.0:8000/api/verify/${user.uniqueString}> Verify your Account </a>`
             sendEmail(email,subject,content);
             return res.json("Thanks for registering. Please Check your mail to verify account")
         }
