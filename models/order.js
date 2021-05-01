@@ -20,8 +20,8 @@ const OrderSchema =new mongoose.Schema({
     address: String,
     status: {
         type: String,
-        default: "Recieved",
-        enum: ["Cancelled", "Delivered", "Shipped", "Processing", "Recieved"]
+        default: "Ordered",
+        enum: ["Cancelled", "Delivered", "Shipped", "Processing", "Ordered"]
     }, 
     updated: Date,
     user: {

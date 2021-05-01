@@ -33,7 +33,7 @@ app.use("/api", orderRoutes);
 app.use("/api", stripeRoutes);
 
 //Port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8081;
 
 //Starting server
 app.listen(port, () => {
