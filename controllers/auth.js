@@ -51,7 +51,7 @@ exports.verify =  async (req,res) => {
         res.write('<html>');
         res.write('<head> <title> Password Verify </title> </head>');
         res.write(' <body> You are success fully verified your account. Please click link below to Login.<br>');
-        res.write(` <a href=http://54.152.6.101:3000/signin> Login </a> </body>`)
+        res.write(` <a href=http://52.3.251.0:3000/signin> Login </a> </body>`)
         res.write('</html>');
         //write end to mark it as stop for node js response.
         res.end();
@@ -93,7 +93,7 @@ exports.signup = async(req, res) => {
             <h1>Hello</h1>
             <p>Thanks for registering on Our Site.</p>
             <p>Please click link below to verify your account</p>
-            <a href=http://54.152.6.101:8081/api/verify/${user.uniqueString}> Verify your Account </a>`
+            <a href=http://52.3.251.0:8081/api/verify/${user.uniqueString}> Verify your Account </a>`
             sendEmail(email,subject,content);
             return res.json("Thanks for registering. Please Check your mail to verify account")
         }
@@ -204,7 +204,7 @@ exports.updatePasswordLink = (req,res) => {
             const content=`
             <h1>Hello</h1>
             <p>Please click link below to Forgot your account</p>
-            <a href=http://54.152.6.101:3000/forgotpassword/${user._id}/${user.uniqueString}> Change Your Password </a>`
+            <a href=http://52.3.251.0:3000/forgotpassword/${user._id}/${user.uniqueString}> Change Your Password </a>`
             sendEmail(email,subject,content);
 
             
