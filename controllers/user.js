@@ -38,10 +38,10 @@ exports.updateUserPassword = (req, res) => {
             if(err || !user)
             {
                 return res.status(400).json({
-                    error: "You are not authorize to update this user"
+                    error: "You are not authorized to update this user"
                 })
             }
-            res.json("password success fully updated")
+            res.json("password successfully updated")
             
         }
     )

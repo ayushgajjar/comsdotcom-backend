@@ -56,7 +56,7 @@ const mongoose = require("mongoose")
 
   userSchema.methods ={
 
-    autheticate: function(password){
+    authenticate: function(password){
         return this.securePassword(password) ===this.encry_password
     },
 

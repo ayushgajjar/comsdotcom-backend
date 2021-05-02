@@ -50,7 +50,7 @@ exports.verify =  async (req,res) => {
         //res.json("you are successfuly verified");
         res.write('<html>');
         res.write('<head> <title> Password Verify </title> </head>');
-        res.write(' <body> You are success fully verified your account. Please click link below to Login.<br>');
+        res.write(' <body> You have successfully verified your account. Please click on link below to Login.<br>');
         res.write(` <a href=http://52.3.251.0:3000/signin> Login </a> </body>`)
         res.write('</html>');
         //write end to mark it as stop for node js response.
@@ -79,7 +79,7 @@ exports.signup = async(req, res) => {
           
             //console.log(flag)
             return res.status(400).json({
-                error: "You have alredy account in this email. Please go to login"
+                error: "You already have account. Please login"
             })
             
         }
@@ -95,7 +95,7 @@ exports.signup = async(req, res) => {
             <p>Please click link below to verify your account</p>
             <a href=http://52.3.251.0:8000/api/verify/${user.uniqueString}> Verify your Account </a>`
             sendEmail(email,subject,content);
-            return res.json("Thanks for registering. Please Check your mail to verify account")
+            return res.json("Thanks for registering. Please Check your mail to verify your account")
         }
     })
     
@@ -118,20 +118,20 @@ exports.signin = (req, res) => {
     User.findOne({email}, (err, user) => {
         if(err || !user){
             return res.status(400).json({
-                error: "User is not exsist"
+                error: "User does not exsist"
             })
         }
 
-        if(!user.autheticate(password)){
+        if(!user.authenticate(password)){
             return res.status(401).json({
-                error: "Email and password not match"
+                error: "Email and password does not match"
             })
         }
 
         if(!user.isValid)
         {
             return res.status(401).json({
-                error: "You not verify your account.Please Check your mail to verify your account"
+                error: "You have not verified your account. Please Check your mail to verify your account"
             })
         }
 
@@ -235,10 +235,10 @@ exports.forgotPassword = (req,res)=> {
                     if(err)
                     {
                         return res.status(400).json({
-                            error: "You are not authorize to update this user"
+                            error: "You are not authorized to update this user"
                         })
                     }
-                    return res.json("password success fully updated. Please go to login")
+                    return res.json("password successfully updated. Please go to login")
                     
                     
                 }
@@ -246,7 +246,7 @@ exports.forgotPassword = (req,res)=> {
         }
         else{
             return res.status(400).json({
-                error: "You are not authorize to update this user"
+                error: "You are not authorized to update this user"
             })
         }
         
